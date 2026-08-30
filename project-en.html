@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — Nils Missillier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <h1><a href="site-en.html">NILS MISSILLIER</a></h1>
+
+      <div class="section-title">WORK</div>
+      <ul>
+        <li><a href="experience-en.html">Experience</a></li>
+        <li><a href="cv-en.html">CV</a></li>
+        <li><a href="project-en.html" class="active">Project</a></li>
+      </ul>
+      <div class="section-title">TRIP</div>
+      <ul>
+        <li><a href="canoe-en.html">Canoe trip</a></li>
+        <li><a href="bikepacking-en.html">Bikepacking</a></li>
+      </ul>
+
+      <div class="contact">
+        <ul>
+          <div class="section-title">CONTACT</div>
+          <p> nilsmissillier@gmail.com</p>
+          <p>+33787893203</p>
+        </ul>
+      </div>
+
+      <div class="lang-switch-corner">
+        <a href="projet.html" title="Français" aria-label="Passer en français">🇫🇷</a>
+        <a href="project-en.html" class="active" title="English" aria-label="Switch to English">🇬🇧</a>
+      </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h2>Projects</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 1: TIPE -->
+          <div class="project-card">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <h4>Avalanche Risk Prediction (CPGE Research Project)</h4>
+                <p class="project-tagline">Predicting avalanche risk with machine learning</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                How can weather data be used to estimate avalanche risk on the European 1-to-5 danger scale? That's the question behind my TIPE (a supervised independent research project required in French preparatory classes for engineering schools), completed during my CPGE MPI track — a topic that ties naturally into my training as a ski instructor.
+              </p>
+
+              <div class="project-stats">
+                <div class="stat">
+                  <span class="stat-value">2</span>
+                  <span class="stat-label">Models compared</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">≈99%</span>
+                  <span class="stat-label">Accuracy within ±1 risk level</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">≈58%</span>
+                  <span class="stat-label">Exact accuracy (no tolerance)</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">100% C</span>
+                  <span class="stat-label">Algorithms built from scratch</span>
+                </div>
+              </div>
+
+              <p class="project-eyebrow">01 — Data</p>
+              <p>
+                Cleaning of snow and weather records from Météo-France, followed by non-parametric feature selection (mutual information, mRMR criterion) to narrow dozens of raw descriptors down to the handful that are genuinely predictive: snow depth, precipitation, grain type, temperature, and daily weather conditions.
+              </p>
+
+              <p class="project-eyebrow">02 — Models</p>
+              <p>
+                Two approaches are implemented entirely in C, with no machine learning library: a Poisson regression (GLM) fitted with the Newton-Raphson method (the IRLS algorithm), and a Random Forest built tree by tree, using Gaussian elimination to solve the underlying linear systems. Data preprocessing is handled in Python.
+              </p>
+
+              <p class="project-eyebrow">03 — Results</p>
+              <p>
+                On the test set, both models reach close to 99% accuracy when allowing a one-level tolerance (±1) on the risk scale, with the Random Forest holding a slight edge in root-mean-square error. I want to be upfront about what that number hides, though: exact accuracy — predicting the precise level, with no tolerance — sits closer to 58%. That gap says less about the models failing than about how compressed the 1-to-5 scale is and how rare the most severe levels are in the data, but it's the honest number, and I'd rather present it than let ±1 accuracy speak alone. The rarer, most severe risk levels (4-5) remain the main limitation for both approaches — a structural limitation I discuss openly rather than a flaw to hide.
+              </p>
+
+              <div class="tech-tags">
+                <span class="tag">C</span>
+                <span class="tag">Python</span>
+                <span class="tag">Poisson GLM</span>
+                <span class="tag">Random Forest</span>
+                <span class="tag">Newton-Raphson</span>
+                <span class="tag">Mutual Information (KSG)</span>
+                <span class="tag">mRMR</span>
+              </div>
+
+              <p class="project-pdf-label">Presentation slides:</p>
+              <!-- PDF slideshow embed -->
+              <iframe src="missillier_nils_26257.pdf" width="100%" height="500px" class="project-pdf-frame"></iframe>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: PORTFOLIO WEBSITE -->
+          <div class="project-card" style="margin-top: 20px;">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <h4>Building This Website</h4>
+                <p class="project-tagline">A personal portfolio built from scratch</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                I designed and built this website entirely myself (HTML, CSS, and JS) to have a single space that brings together the different sides of who I am. The goal was to create a dynamic, polished platform blending my professional life (CV, experience, and academic projects like my TIPE) with my personal life, driven by a passion for outdoor sports (bikepacking trips, canoeing...).
+              </p>
+              <p style="margin-top: 10px;">
+                Building this site helped me improve my web development and UI/UX design skills, while also keeping a record of adventures shared with my brother and friends.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.project-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.project-card');
+        var details = card.querySelector('.project-details');
+        var isOpen = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+
+        // Smooth expand/collapse transition
+        details.style.maxHeight = isOpen ? details.scrollHeight + 'px' : null;
+      });
+    });
+  </script>
+
+</body>
+</html>
