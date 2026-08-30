@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet — Nils Missillier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- MENU LATÉRAL -->
+    <nav class="sidebar">
+      <h1><a href="index.html">NILS MISSILLIER</a></h1>
+
+      <div class="section-title">WORK</div>
+      <ul>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="projet.html" class="active">Projet</a></li>
+      </ul>
+      <div class="section-title">TRIP</div>
+      <ul>
+        <li><a href="canoe.html">Canoe trip</a></li>
+        <li><a href="bickpacking.html">Bikepacking</a></li>
+      </ul>
+
+      <div class="contact">
+        <ul>
+          <div class="section-title">CONTACT</div>
+          <p> nilsmissillier@gmail.com</p>
+          <p>+33787893203</p>
+        </ul>
+      </div>
+
+      <div class="lang-switch-corner">
+        <a href="projet.html" class="active" title="Français" aria-label="Passer en français">🇫🇷</a>
+        <a href="project-en.html" title="English" aria-label="Switch to English">🇬🇧</a>
+      </div>
+    </nav>
+
+    <!-- CONTENU DE LA PAGE -->
+    <main class="main-content">
+      <div class="content-wrapper">
+
+        <div class="page-header">
+          <h2>Projets</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJET 1 : TIPE -->
+          <div class="project-card">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <h4>Prédiction d'avalanche (TIPE MPI)</h4>
+                <p class="project-tagline">Prédiction du risque d'avalanche par apprentissage automatique</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                Comment estimer, à partir de données météorologiques, le niveau de risque d'avalanche sur l'échelle européenne (1 à 5) ? C'est la question au cœur de mon TIPE (Travail d'Initiative Personnelle Encadré), un projet de recherche encadré réalisé en classe préparatoire MPI — un sujet qui prolonge naturellement ma formation de moniteur de ski.
+              </p>
+
+              <div class="project-stats">
+                <div class="stat">
+                  <span class="stat-value">2</span>
+                  <span class="stat-label">Modèles comparés</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">≈99%</span>
+                  <span class="stat-label">Précision à ±1 niveau de risque</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">≈58%</span>
+                  <span class="stat-label">Précision exacte (sans tolérance)</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">100% C</span>
+                  <span class="stat-label">Algorithmes codés from scratch</span>
+                </div>
+              </div>
+
+              <p class="project-eyebrow">01 — Données</p>
+              <p>
+                Nettoyage des relevés nivo-météorologiques de Météo-France, puis sélection non paramétrique des variables (information mutuelle, critère mRMR) afin d'isoler, parmi la cinquantaine de descripteurs bruts, les quelques variables réellement prédictives : hauteur de neige, précipitations, type de grain, température, conditions du jour.
+              </p>
+
+              <p class="project-eyebrow">02 — Modèles</p>
+              <p>
+                Deux approches sont implémentées intégralement en C, sans bibliothèque de machine learning : une régression de Poisson (GLM) estimée par la méthode de Newton-Raphson (algorithme IRLS), et une forêt aléatoire (Random Forest) construite arbre par arbre, avec pivot de Gauss pour la résolution des systèmes linéaires. Le prétraitement des données est assuré en Python.
+              </p>
+
+              <p class="project-eyebrow">03 — Résultats</p>
+              <p>
+                Sur le jeu de test, les deux modèles atteignent une précision proche de 99% lorsqu'on tolère
+                 un écart d'un niveau de risque (±1), la forêt aléatoire prenant un léger avantage en erreur 
+                 quadratique moyenne. Je préfère être honnête sur ce que ce chiffre masque : 
+                 la précision exacte — prédire le niveau exact, sans tolérance — n'est que d'environ 58%.
+                  Cet écart en dit moins sur un échec des modèles que sur la compression de l'échelle à 5 
+                  niveaux et la rareté des niveaux les plus sévères dans les données.
+                    Les niveaux de risque extrêmes (4-5), plus rares, restent la principale limite des deux 
+                    approches — une limite structurelle assumée et discutée à l'oral.
+              </p>
+
+              <div class="tech-tags">
+                <span class="tag">C</span>
+                <span class="tag">Python</span>
+                <span class="tag">GLM Poisson</span>
+                <span class="tag">Random Forest</span>
+                <span class="tag">Newton-Raphson</span>
+                <span class="tag">Information mutuelle (KSG)</span>
+                <span class="tag">mRMR</span>
+              </div>
+
+              <p class="project-pdf-label">Diaporama de présentation :</p>
+              <!-- Intégration du diaporama PDF -->
+              <iframe src="missillier_nils_26257.pdf" width="100%" height="500px" class="project-pdf-frame"></iframe>
+            </div>
+          </div>
+
+          <!-- PROJET 2 : PORTFOLIO SITE WEB -->
+          <div class="project-card" style="margin-top: 20px;">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <h4>Création de ce Site Web</h4>
+                <p class="project-tagline">Portfolio personnel codé de A à Z</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                J'ai entièrement conçu et développé ce site web (en HTML, CSS et JS) afin d'avoir un espace unique qui regroupe mes différentes facettes. L'objectif était de créer une plateforme dynamique et esthétique qui mêle ma vie professionnelle (CV, expériences et projets académiques comme mon TIPE) et ma vie personnelle animée par ma passion pour le sport de plein air (expéditions en bikepacking, canoë...).
+              </p>
+              <p style="margin-top: 10px;">
+                Ce projet de site m'a permis d'améliorer mes compétences en développement web et en UI/UX design, tout en gardant une trace de mes aventures avec mon frère et mes amis.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.project-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.project-card');
+        var details = card.querySelector('.project-details');
+        var isOpen = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+
+        // Permet une transition d'ouverture fluide
+        details.style.maxHeight = isOpen ? details.scrollHeight + 'px' : null;
+      });
+    });
+  </script>
+
+</body>
+</html>
