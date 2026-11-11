@@ -49,12 +49,146 @@
           <div class="divider"></div>
         </div>
 
+        <!-- Projects are listed from most recent to oldest -->
         <div class="projects-grid">
 
-          <!-- PROJECT 1: TIPE -->
+          <!-- PROJECT: HELIOSOPT (ONGOING) -->
           <div class="project-card">
             <button class="project-toggle" aria-expanded="false">
               <div class="project-toggle-text">
+                <p class="project-meta">
+                  <span>Oct. 2026 — Feb. 2028</span>
+                  <span class="status-badge">Ongoing</span>
+                </p>
+                <h4>HeliosOpt</h4>
+                <p class="project-tagline">An open-source app to maximize solar self-consumption</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                With residential solar on the rise, a household with solar panels constantly faces the same trade-off: when should it run the washing machine, charge the electric car, or fill the home battery so it uses its own solar power rather than drawing from the grid? HeliosOpt is a project management course project at Centrale Lille (G1/G2 project), carried out by a team of 8, whose goal is to build an open-source web / Android app that answers this question automatically.
+              </p>
+
+              <div class="project-stats">
+                <div class="stat">
+                  <span class="stat-value">8</span>
+                  <span class="stat-label">Team members</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">3</span>
+                  <span class="stat-label">Audits (Dec. 2026, June 2027, Feb. 2028)</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">7</span>
+                  <span class="stat-label">Weather / solar APIs compared</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">100%</span>
+                  <span class="stat-label">Open source</span>
+                </div>
+              </div>
+
+              <p class="project-eyebrow">01 — Goal</p>
+              <p>
+                Starting from the specifications of the installation (peak power, orientation, tilt, battery, electric vehicle, flexible appliances), the app forecasts solar production using weather APIs. A constrained optimization engine then builds the ideal hourly schedule for each appliance to maximize the self-consumption rate. The result is shown to the user as a dashboard of daily recommendations.
+              </p>
+
+              <p class="project-eyebrow">02 — Where the project stands</p>
+              <p>
+                We are in the definition phase: review of existing apps, SWOT analysis, project charter and objectives matrix. We compared seven data sources (Open-Meteo, Météo-France AROME, Solcast, Forecast.Solar, Meteoblue, OpenWeatherMap, WeatherAPI) on coverage, cost, quotas and privacy, and defined the processing pipeline: weather API → production estimate with pvlib → comparison with real inverter measurements. This work is coordinated with OptiGrid, a related project.
+              </p>
+
+              <p class="project-eyebrow">03 — Next steps</p>
+              <p>
+                Technical specifications for the December 2026 audit, a first prototype validating the APIs and the optimization algorithm in early 2027, then a finished, documented web app released under an open-source license by February 2028.
+              </p>
+
+              <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">pvlib</span>
+                <span class="tag">REST APIs</span>
+                <span class="tag">Open-Meteo</span>
+                <span class="tag">Constrained optimization</span>
+                <span class="tag">Solar PV</span>
+                <span class="tag">Project management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT: sKar DRAWING ROBOT -->
+          <div class="project-card">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <p class="project-meta"><span>Sept. — Nov. 2026</span></p>
+                <h4>sKar Drawing Robot</h4>
+                <p class="project-tagline">A SCARA robotic arm that finds a sheet of paper and draws an image on it</p>
+              </div>
+              <span class="project-chevron">＋</span>
+            </button>
+            <div class="project-details">
+              <p>
+                As part of the Start &amp; Go Robotics module at Centrale Lille, our team of 8 designed a robot able to locate a sheet of paper placed in front of it, then draw an image on it from an .rle file. The project covered the whole chain: mechanics, sensors, actuators, control engineering and embedded software.
+              </p>
+
+              <div class="project-stats">
+                <div class="stat">
+                  <span class="stat-value">8</span>
+                  <span class="stat-label">Team members</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">6</span>
+                  <span class="stat-label">Weeks of project work</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">3</span>
+                  <span class="stat-label">Dynamixel motors</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">≈€250</span>
+                  <span class="stat-label">In hardware</span>
+                </div>
+              </div>
+
+              <p class="project-eyebrow">01 — Design</p>
+              <p>
+                We compared two architectures: a rail-based, printer-style robot and an articulated arm. The rail-based robot suffered from friction, took up a lot of space on the drawing surface and was slow. We therefore chose a SCARA-type arm: two arms with pivot joints and a slide to raise and lower the pen, driven by 3 Dynamixel XL330 motors. The robot was modeled in Onshape and built at the fablab (3D-printed parts, laser-cut wooden gears).
+              </p>
+
+              <p class="project-eyebrow">02 — Sensors &amp; software</p>
+              <p>
+                To find the sheet, the robot performs a circular sweep with a single RGB sensor. Otsu thresholding separates the sheet from the background, and the centroid of the detected points gives its center, whatever the sheet's orientation. The embedded code on an Arduino Mega is built as a state machine and communicates with both the PC and the motors. It decodes .rle files, keeping only the contours to cut drawing time, and controls the arm using inverse kinematics, the Jacobian matrix and a PI controller, all validated first in simulation on a PC.
+              </p>
+
+              <p class="project-eyebrow">03 — Results</p>
+              <p>
+                Against the initial specifications, sheet detection, raising and lowering the pen, and .rle file conversion all work. 3D modeling, the pivot joints, drawing around the center and contour tracing were only partly achieved. Moving in a straight line from point A to point B and precisely locating the center could not be validated on the real robot. The main obstacles were the gap between the theoretical model and reality, and the time spent on design and reprinting parts. Above all, this project taught me the value of breaking work into small chunks, testing intermediate parts rather than building everything at once, and coordinating closely between the different sub-teams.
+              </p>
+
+              <div class="tech-tags">
+                <span class="tag">Arduino Mega</span>
+                <span class="tag">C / C++</span>
+                <span class="tag">Dynamixel XL330</span>
+                <span class="tag">RGB sensor</span>
+                <span class="tag">Otsu thresholding</span>
+                <span class="tag">Inverse kinematics</span>
+                <span class="tag">PI controller</span>
+                <span class="tag">Onshape</span>
+                <span class="tag">3D printing</span>
+                <span class="tag">Laser cutting</span>
+              </div>
+
+              <p class="project-pdf-label">Presentation slides (in French):</p>
+              <!-- Same PDF as the French page: projet_sKar.pdf -->
+              <iframe src="projet_sKar.pdf" width="100%" height="500px" class="project-pdf-frame"></iframe>
+            </div>
+          </div>
+
+          <!-- PROJECT: TIPE -->
+          <div class="project-card">
+            <button class="project-toggle" aria-expanded="false">
+              <div class="project-toggle-text">
+                <p class="project-meta"><span>Sept. 2025 — June 2026</span></p>
                 <h4>Avalanche Risk Prediction (CPGE Research Project)</h4>
                 <p class="project-tagline">Predicting avalanche risk with machine learning</p>
               </div>
@@ -115,10 +249,11 @@
             </div>
           </div>
 
-          <!-- PROJECT 2: PORTFOLIO WEBSITE -->
-          <div class="project-card" style="margin-top: 20px;">
+          <!-- PROJECT: PORTFOLIO WEBSITE -->
+          <div class="project-card">
             <button class="project-toggle" aria-expanded="false">
               <div class="project-toggle-text">
+                <p class="project-meta"><span>Last updated: Nov. 11, 2026</span></p>
                 <h4>Building This Website</h4>
                 <p class="project-tagline">A personal portfolio built from scratch</p>
               </div>
