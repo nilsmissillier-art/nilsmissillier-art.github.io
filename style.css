@@ -798,3 +798,49 @@
   color: #111;
   font-weight: bold;
 }
+
+
+/* ---------- DATES ET STATUT DES PROJETS ----------
+     À coller tout à la fin de ton style.css (sans rien remplacer).
+     Petite ligne grise au-dessus du titre de chaque projet
+     (même esprit que .trip-meta sur les pages trip) */
+  .project-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 12px;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+
+  /* Pastille verte "En cours" */
+  .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #1a7f37;
+        background-color: #eaf6ec;
+        border: 1px solid #cfe9d4;
+        border-radius: 20px;
+        padding: 2px 10px;
+      }
+
+  /* Le petit point qui "respire" devant "En cours" */
+  .status-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #1a7f37;
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+
+  @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0.3; }
+      }
